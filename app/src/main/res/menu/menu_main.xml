@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/viewAppointments"
+        android:title="My Appointments"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/addMed"
+        android:title="Add Medication"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/medicationRem"
+        android:title="Medication Reminder"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/deleteMed"
+        android:title="Delete Medication"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_logout"
+        android:title="Sign Out"
+        app:showAsAction="never" />
+</menu>

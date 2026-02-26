@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/white"
+            app:title="Eldercare Helper" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBarLayout"
+        android:layout_above="@id/bottom_navigation"
+        android:clipToPadding="false"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Greeting and Date Section -->
+            <TextView
+                android:id="@+id/todayDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thursday, Feb 26"
+                android:textColor="@color/text_primary"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Prayer Times Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/prayerCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/todayDate"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/prayer_card_bg"
+                android:layout_marginBottom="16dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/Mosque"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/mosque"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="Mosque Icon" />
+
+                    <TextView
+                        android:id="@+id/prayerTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prayer Times"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary_dark"
+                        android:layout_marginBottom="12dp"/>
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/prayerTitle"
+                        android:columnCount="2"
+                        android:rowCount="3"
+                        android:alignmentMode="alignMargins"
+                        android:columnOrderPreserved="false">
+
+                        <TextView
+                            android:id="@+id/fajrTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Fajr: --:--"
+                            android:textSize="18sp"
+                            android:padding="4dp"/>
+
+                        <TextView
+                            android:id="@+id/dhuhrTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Dhuhr: --:--"
+                            android:textSize="18sp"
+                            android:padding="4dp"/>
+
+                        <TextView
+                            android:id="@+id/asrTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Asr: --:--"
+                            android:textSize="18sp"
+                            android:padding="4dp"/>
+
+                        <TextView
+                            android:id="@+id/maghribTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Maghrib: --:--"
+                            android:textSize="18sp"
+                            android:padding="4dp"/>
+
+                        <TextView
+                            android:id="@+id/ishaTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Isha: --:--"
+                            android:textSize="18sp"
+                            android:padding="4dp"/>
+                    </GridLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Check-in and Medication Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/statusCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/prayerCard"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/checkInStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="You have not checked in today"
+                        android:textSize="22sp"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:layout_marginBottom="16dp"/>
+
+                    <Button
+                        android:id="@+id/checkInBtn"
+                        android:layout_width="200dp"
+                        android:layout_height="70dp"
+                        android:text="I'M OK"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="35dp"
+                        android:backgroundTint="@color/primary"
+                        android:layout_marginBottom="24dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#DDDDDD"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:id="@+id/medInfoMain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Medication Reminder"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_secondary"
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Action Buttons -->
+            <Button
+                android:id="@+id/AppointmentButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_below="@id/statusCard"
+                android:text="ADD APPOINTMENT"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/secondary"
+                app:cornerRadius="12dp"
+                android:layout_marginBottom="12dp"
+                android:onClick="AddAppointment"/>
+
+            <Button
+                android:id="@+id/sosButton"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/AppointmentButton"
+                android:text="SOS - EMERGENCY"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/sos_red"
+                app:cornerRadius="12dp"
+                android:layout_marginBottom="32dp"
+                android:onClick="emergencycall"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/primary"
+        app:itemTextColor="@color/text_primary"
+        app:labelVisibilityMode="labeled"
+        app:elevation="8dp"/>
+
+</RelativeLayout>
